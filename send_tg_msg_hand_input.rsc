@@ -1,16 +1,18 @@
 :global token "YourBotAPIToken";
 :global chatid "YourChatID";
 
-:global input do={:return};
+:local input do={:return};
 :put "Enter text: ";
-:global text [$input];
+:local text [$input];
 
 if ($text="") do={
-	:put "Error: variables not set, please enter text";
+    :put "Error: variables not set, please enter text";
+    :log info "Текст не задан, пожалуйста введите текст.";
 };
 
 if ($text!="") do={
-	/tool fetch url="https://api.telegram.org/$token/sendMessage\?chat_id=$chatid&text=$text" output=none;
+    /tool fetch url="https://api.telegram.org/$token/sendMessage\?chat_id=$chatid&text=$text" output=none;
 } else={
-	:put "Unkown error";
+    :put "Unkown error";
+    :log info "Неизвестная ошибка";
 }
