@@ -8,7 +8,7 @@ if ($text="") do={
 };
 
 if ($text!="") do={
-    /tool fetch url="https://api.telegram.org/$token/sendMessage\?chat_id=$chatid&text=$text" output=none;
+    /tool fetch url="https://api.telegram.org/bot$token/sendMessage\?chat_id=$chatid&text=$text" output=none;
 } else={
     :put "Unkown error";
     :log info "Неизвестная ошибка";
